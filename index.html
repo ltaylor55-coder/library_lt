@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book"></i> My Library</h1>
+            <button id="new-book-btn" class="btn btn-primary">
+                <i class="fas fa-plus-circle"></i> New Book
+            </button>
+        </header>
+
+        <main>
+            <div class="library-stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-books">0</span>
+                    <span class="stat-label">Total Books</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="read-books">0</span>
+                    <span class="stat-label">Books Read</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="unread-books">0</span>
+                    <span class="stat-label">Books to Read</span>
+                </div>
+            </div>
+
+            <div class="books-container" id="books-container">
+                <!-- Books will be dynamically added here -->
+                <div class="empty-library">
+                    <i class="fas fa-book-open"></i>
+                    <p>Your library is empty. Add your first book!</p>
+                </div>
+            </div>
+        </main>
+
+        <dialog id="book-form-modal">
+            <div class="modal-header">
+                <h2>Add New Book</h2>
+                <button id="close-modal" class="btn-icon">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="book-form">
+                <div class="form-group">
+                    <label for="title">Title *</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="author">Author *</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pages">Number of Pages</label>
+                    <input type="number" id="pages" name="pages" min="1" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="science-fiction">Science Fiction</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="biography">Biography</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="read-status">Reading Status</label>
+                    <div class="toggle-group">
+                        <button type="button" class="toggle-btn" id="toggle-unread">Unread</button>
+                        <button type="button" class="toggle-btn active" id="toggle-read">Read</button>
+                        <input type="hidden" id="read-status" name="read-status" value="read">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Add Book</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
